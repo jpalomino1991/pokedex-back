@@ -1,15 +1,8 @@
-const admin = require('firebase-admin');
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const { json, urlencoded } = require('body-parser');
-const neatCsv = require('neat-csv');
-const fs = require('fs');
-const mongoose = require('mongoose');
 const attackRouter = require('./resources/attack/attack.router');
-const attack = require('./resources/attack/attack.model');
-const ability = require('./resources/ability/ability.model');
-const pokemon = require('./resources/pokemon/pokemon.model');
 const morgan = require('morgan');
 
 require('dotenv').config({path: __dirname + '/.env'});
