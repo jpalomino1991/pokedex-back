@@ -1,7 +1,6 @@
-const Attack = require('./attack.model');
 const Controller = require('../controller');
 
-let con = new Controller('attack');
+let con = new Controller('ability');
 
 const getNext = con.getNext;
 

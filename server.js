@@ -3,6 +3,8 @@ const app = express();
 const cors = require('cors');
 const { json, urlencoded } = require('body-parser');
 const attackRouter = require('./resources/attack/attack.router');
+const abilityRouter = require('./resources/ability/ability.router');
+const pokemonRouter = require('./resources/pokemon/pokemon.router');
 const morgan = require('morgan');
 
 require('dotenv').config({path: __dirname + '/.env'});
@@ -12,6 +14,8 @@ app.use(cors());
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use('/api/attack',attackRouter);
+app.use('/api/ability',abilityRouter);
+app.use('/api/pokemon',pokemonRouter);
 
 const { connect } = require('./db');
 
