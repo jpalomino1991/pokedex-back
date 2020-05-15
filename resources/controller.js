@@ -19,21 +19,30 @@ class Model {
     }
     getNext = async (req, res) => {
         try {
-          const info = await this.mod.find().skip(req.body.count * 5).limit(5).lean().exec();
+          const info = await this.mod.find({},{name: 1}).skip(req.body.count * 5).limit(5).lean().exec();
           res.status(200).json({ data: info });
         } catch (e) {
-          console.log(e);
+          console.error(e);
           res.status(400).end();
         }
     };
     search = async (req, res) => {
         try {
-          const info = await this.mod.find({'name': {'$regex': req.body.search}}).lean().exec();
+          const info = await this.mod.find({'name': {'$regex': req.body.search}},{name: 1}).lean().exec();
           res.status(200).json({ data: info });
         } catch (e) {
-          console.log(e);
+          console.error(e);
           res.status(400).end();
         }
+    };
+    getbyid = async (req, res) => {
+      try {
+        const info = await this.mod.find({'_id': req.body.id}).lean().exec();
+        res.status(200).json({ data: info });
+      } catch (e) {
+        console.error(e);
+        res.status(400).end();
+      }
     };
 }
 
