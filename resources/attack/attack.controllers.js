@@ -9,8 +9,11 @@ const search = con.search;
 
 const getbyid = con.getbyid;
 
+const insertData = con.insertData;
+
 module.exports = {
     getNext,
     search,
-    getbyid
+    getbyid,
+    insertData
 };

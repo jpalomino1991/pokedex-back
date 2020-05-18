@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const attackSchema = new mongoose.Schema({
     name: String,
-    typy: String,
+    type: String,
     category: String,
     power: String,
     accuracy: String,
