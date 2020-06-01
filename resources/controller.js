@@ -6,7 +6,9 @@ const fs = require('fs');
 const neatCsv = require('neat-csv');
 
 class Model {
+    field = ''
     constructor(mod) {
+        this.field = mod == 'pokemon' ? 'Name' : 'name'
         switch(mod)
         {
             case "attack":
@@ -25,7 +27,8 @@ class Model {
     }
     getNext = async (req, res) => {
         try {
-          const info = await this.mod.find({},{name: 1}).skip(req.body.count * 5).limit(5).lean().exec();
+          const info = await this.mod.find().select(this.field).skip(req.body.count * 5).limit(5).lean().exec();
+          console.log(info);
           res.status(200).json({ data: info });
         } catch (e) {
           console.error(e);
@@ -34,7 +37,7 @@ class Model {
     };
     search = async (req, res) => {
         try {
-          const info = await this.mod.find({'name': {'$regex': req.body.search}},{name: 1}).lean().exec();
+          const info = await this.mod.find().where(this.field).regex(req.body.search).select(this.field).lean().exec();
           res.status(200).json({ data: info });
         } catch (e) {
           console.error(e);
