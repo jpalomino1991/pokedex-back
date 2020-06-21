@@ -8,7 +8,7 @@ const pokemonRouter = require('./resources/pokemon/pokemon.router');
 const pokemonAttackRouter = require('./resources/pokemonAttack/pokemonAttack.router');
 const morgan = require('morgan');
 
-//require('dotenv').config({path: __dirname + '/.env'});
+require('dotenv').config();
 app.disabled('x-powered-by');
 app.use(morgan('dev'));
 app.use(cors());
@@ -23,6 +23,8 @@ const { connect } = require('./db');
 
 // Listen to the App Engine-specified port, or 8080 otherwise
 const PORT = process.env.PORT || 8080;
+
+console.log(process.env.MONGODB_CONNECTION_STRING);
 
 module.exports.start = async () => {
     try {
