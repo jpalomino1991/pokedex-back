@@ -8,7 +8,7 @@ const pokemonRouter = require('./resources/pokemon/pokemon.router');
 const pokemonAttackRouter = require('./resources/pokemonAttack/pokemonAttack.router');
 const morgan = require('morgan');
 
-require('dotenv').config({path: __dirname + '/.env'});
+//require('dotenv').config({path: __dirname + '/.env'});
 app.disabled('x-powered-by');
 app.use(morgan('dev'));
 app.use(cors());
