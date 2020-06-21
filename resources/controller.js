@@ -28,7 +28,6 @@ class Model {
     getNext = async (req, res) => {
         try {
           const info = await this.mod.find().select(this.field).skip(req.body.count * 5).limit(5).lean().exec();
-          console.log(info);
           res.status(200).json({ data: info });
         } catch (e) {
           console.error(e);
