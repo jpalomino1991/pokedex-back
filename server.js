@@ -24,8 +24,6 @@ const { connect } = require('./db');
 // Listen to the App Engine-specified port, or 8080 otherwise
 const PORT = process.env.PORT || 8080;
 
-console.log(process.env.MONGODB_CONNECTION_STRING);
-
 module.exports.start = async () => {
     try {
         await connect();

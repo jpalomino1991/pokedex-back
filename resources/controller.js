@@ -36,7 +36,7 @@ class Model {
     };
     search = async (req, res) => {
         try {
-          const info = await this.mod.find().where(this.field).regex(req.body.search).select(this.field).lean().exec();
+          const info = await this.mod.find().where(this.field).regex(new RegExp(req.body.search,'i')).select(this.field).lean().exec();
           res.status(200).json({ data: info });
         } catch (e) {
           console.error(e);
