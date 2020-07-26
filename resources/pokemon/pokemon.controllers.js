@@ -1,4 +1,4 @@
-const Controller = require('../controller');
+const Controller = require('../common/controller');
 
 let con = new Controller('pokemon');
 

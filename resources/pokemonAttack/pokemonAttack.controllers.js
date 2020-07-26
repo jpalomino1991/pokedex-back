@@ -1,5 +1,5 @@
 const Model = require('./pokemonAttack.model');
-const Controller = require('../controller');
+const Controller = require('../common/controller');
 
 let con = new Controller('pokemonAttack');
 

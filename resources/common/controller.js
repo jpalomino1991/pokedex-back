@@ -1,7 +1,7 @@
-const Attack = require('./attack/attack.model');
-const Ability = require('./ability/ability.model');
-const Pokemon = require('./pokemon/pokemon.model');
-const PokemonAttack = require('./pokemonAttack/pokemonAttack.model')
+const Attack = require('../attack/attack.model');
+const Ability = require('../ability/ability.model');
+const Pokemon = require('../pokemon/pokemon.model');
+const PokemonAttack = require('../pokemonAttack/pokemonAttack.model')
 const fs = require('fs');
 const neatCsv = require('neat-csv');
 
